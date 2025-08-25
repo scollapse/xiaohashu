@@ -1,6 +1,6 @@
 package com.syllable.framework.biz.operationlog.aspect;
 
-import com.syllable.framework.common.util.JsonUtils;
+import com.syllable.framework.jackson.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

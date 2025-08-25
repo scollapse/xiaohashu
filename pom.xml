@@ -112,6 +112,14 @@
       <version>${revision}</version>
     </dependency>
 
+    <!--        jackson-->
+    <dependency>
+      <groupId>com.syllable</groupId>
+      <artifactId>xiaoha-spring-boot-starter-jackson</artifactId>
+      <version>${revision}</version>
+    </dependency>
+
+
     <!-- Mybatis -->
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>

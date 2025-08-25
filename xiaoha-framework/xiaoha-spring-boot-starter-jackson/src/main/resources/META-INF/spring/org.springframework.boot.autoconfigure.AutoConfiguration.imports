@@ -1,0 +1,2 @@
+com.syllable.framework.jackson.config.XiaohaJacksonAutoConfiguration
+com.syllable.framework.jackson.config.JsonConfiguration

@@ -68,7 +68,11 @@
             <artifactId>druid-spring-boot-3-starter</artifactId>
         </dependency>
 
-
+        <!-- 序列化 -->
+        <dependency>
+            <groupId>com.syllable</groupId>
+            <artifactId>xiaoha-spring-boot-starter-jackson</artifactId>
+        </dependency>
     </dependencies>
 
 

@@ -1,6 +1,6 @@
 package com.syllable.xiaohashu.auth;
 
-import com.syllable.framework.common.util.JsonUtils;
+import com.syllable.framework.jackson.util.JsonUtils;
 import com.syllable.xiaohashu.auth.domain.dataobject.UserDO;
 import com.syllable.xiaohashu.auth.domain.mapper.UserDOMapper;
 import jakarta.annotation.Resource;

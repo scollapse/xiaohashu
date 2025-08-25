@@ -4,6 +4,8 @@ package com.syllable.xiaohashu.auth.controller;
 import com.syllable.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.syllable.framework.common.response.Response;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -23,12 +25,9 @@ public class TestController {
         return Response.success("success");
     }
 
-    @GetMapping("/test2")
+    @PostMapping("/test2")
     @ApiOperationLog(description = "测试接口2")
-    public Response<User> test2() {
-        return Response.success(User.builder()
-                .nickName("犬小哈")
-                .createTime(LocalDateTime.now())
-                .build());
+    public Response<User> test2(@RequestBody User user) {
+      return Response.success(user);
     }
 }
