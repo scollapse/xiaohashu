@@ -20,6 +20,7 @@
   <modules>
     <!-- 认证服务 -->
     <module>xiaohashu-auth</module>
+    <module>xiaoha-framework</module>
   </modules>
 
 <properties>
@@ -79,6 +80,13 @@
       <type>pom</type>
       <scope>import</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.syllable</groupId>
+      <artifactId>xiaoha-common</artifactId>
+      <version>${revision}</version>
+    </dependency>
+
 
   </dependencies>
 </dependencyManagement>
