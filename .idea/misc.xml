@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/xiaohashu-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/xiaoha-framework/xiaoha-common/pom.xml" />
       </list>
     </option>
   </component>
