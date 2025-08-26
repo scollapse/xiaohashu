@@ -3,6 +3,7 @@ package com.syllable.xiaohashu.auth.controller;
 
 import com.syllable.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.syllable.framework.common.response.Response;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +28,8 @@ public class TestController {
 
     @PostMapping("/test2")
     @ApiOperationLog(description = "测试接口2")
-    public Response<User> test2(@RequestBody User user) {
+    public Response<User> test2(@RequestBody @Validated User user) {
       return Response.success(user);
     }
+
 }

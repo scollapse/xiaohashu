@@ -73,6 +73,13 @@
             <groupId>com.syllable</groupId>
             <artifactId>xiaoha-spring-boot-starter-jackson</artifactId>
         </dependency>
+
+        <!--        增加参数校验依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
     </dependencies>
 
 
