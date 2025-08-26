@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.YearMonthDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
 import com.syllable.framework.common.constant.DateConstants;
@@ -65,7 +66,8 @@ public class XiaohaJacksonAutoConfiguration {
             log.debug("使用 DateConstants 配置 Java 时间 API (JSR310) 的序列化/反序列化格式");
             JavaTimeModule javaTimeModule = new JavaTimeModule();
 
-            // 使用 DateConstants 中的 DateTimeFormatter            javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateConstants.DATE_FORMAT_Y_M_D_H_M_S));
+            // 使用 DateConstants 中的 DateTimeFormatter
+            javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateConstants.DATE_FORMAT_Y_M_D_H_M_S));
             javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateConstants.DATE_FORMAT_Y_M_D_H_M_S));
 
             javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateConstants.DATE_FORMAT_Y_M_D));
@@ -77,9 +79,11 @@ public class XiaohaJacksonAutoConfiguration {
             javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DateConstants.DATE_FORMAT_Y_M));
             javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DateConstants.DATE_FORMAT_Y_M));
 
-            // 注册配置好的 JavaTimeModule            builder.modules(javaTimeModule);
+            // 注册配置好的 JavaTimeModule
+            builder.modules(javaTimeModule);
             log.info("[小哈]自定义 Jackson 配置应用完成。");
-            // 注意：这里绝对不能再调用 JsonUtils.init()            // Starter 的目的就是通过 Spring Boot 的机制配置 ObjectMapper Bean，
+            // 注意：这里绝对不能再调用 JsonUtils.init()
+            // Starter 的目的就是通过 Spring Boot 的机制配置 ObjectMapper Bean，
             // 而不是去初始化一个外部的静态工具类。
         };
     }
