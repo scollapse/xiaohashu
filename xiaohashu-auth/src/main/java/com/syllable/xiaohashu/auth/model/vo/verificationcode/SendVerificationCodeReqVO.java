@@ -1,6 +1,7 @@
 package com.syllable.xiaohashu.auth.model.vo.verificationcode;
 
 
+import com.syllable.framework.common.validator.PhoneNumber;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,5 +20,6 @@ import lombok.NoArgsConstructor;
 public class SendVerificationCodeReqVO {
 
     @NotBlank(message = "手机号不能为空")
+    @PhoneNumber(message = "手机号格式不正确")
     private String phone;
 }
