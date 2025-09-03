@@ -51,7 +51,7 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
         String key = RedisKeyConstants.buildVerificationCodeKey(phone);
 
         // 判断是否已发送验证码
-        boolean isSent = redisTemplate.hasKey(key);
+        boolean isSent = Boolean.TRUE.equals(redisTemplate.hasKey(key));
         if (isSent) {
             // 若之前发送的验证码未过期，则提示发送频繁
             throw new BizException(ResponseCodeEnum.VERIFICATION_CODE_SEND_FREQUENTLY);
