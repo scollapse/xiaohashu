@@ -21,6 +21,7 @@
     <!-- 认证服务 -->
     <module>xiaohashu-auth</module>
     <module>xiaoha-framework</module>
+    <module>xiaohashu-gateway</module>
   </modules>
 
 <properties>
@@ -147,13 +148,6 @@
       <version>${druid.version}</version>
     </dependency>
 
-    <!-- Sa-Token 权限认证 -->
-    <dependency>
-      <groupId>cn.dev33</groupId>
-      <artifactId>sa-token-spring-boot3-starter</artifactId>
-      <version>${sa-token.version}</version>
-    </dependency>
-
     <!-- 相关工具类 -->
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -180,10 +174,24 @@
       <version>${dysmsapi.version}</version>
     </dependency>
 
+
+    <!-- Sa-Token 权限认证 -->
+    <dependency>
+      <groupId>cn.dev33</groupId>
+      <artifactId>sa-token-spring-boot3-starter</artifactId>
+      <version>${sa-token.version}</version>
+    </dependency>
+
     <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
     <dependency>
       <groupId>cn.dev33</groupId>
       <artifactId>sa-token-redis-jackson</artifactId>
+      <version>${sa-token.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.dev33</groupId>
+      <artifactId>sa-token-reactor-spring-boot3-starter</artifactId>
       <version>${sa-token.version}</version>
     </dependency>
 
