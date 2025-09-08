@@ -25,6 +25,8 @@
         <module>xiaoha-spring-boot-starter-biz-operationlog</module>
         <!-- jackson 序列化组件 -->
         <module>xiaoha-spring-boot-starter-jackson</module>
+<!--        上下文 HOLDER 组件 -->
+        <module>xiaoha-spring-boot-starter-contextholder</module>
     </modules>
 
 </project>

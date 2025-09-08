@@ -1,6 +1,7 @@
 package com.syllable.xiaohashu.auth.filter;
 
 import com.syllable.framework.common.constant.GlobalConstants;
+import com.syllable.xiaohashu.auth.holder.LoginUserContextHolder;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

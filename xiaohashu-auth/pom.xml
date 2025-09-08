@@ -151,10 +151,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
+            <groupId>com.syllable</groupId>
+            <artifactId>xiaoha-spring-boot-starter-contextholder</artifactId>
         </dependency>
-
 
     </dependencies>
 
