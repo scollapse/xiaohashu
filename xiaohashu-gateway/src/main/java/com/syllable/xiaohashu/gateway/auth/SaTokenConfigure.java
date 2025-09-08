@@ -1,6 +1,9 @@
 package com.syllable.xiaohashu.gateway.auth;
 
 import cn.dev33.satoken.context.SaHolder;
+import cn.dev33.satoken.exception.NotLoginException;
+import cn.dev33.satoken.exception.NotPermissionException;
+import cn.dev33.satoken.exception.NotRoleException;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
@@ -32,16 +35,21 @@ public class SaTokenConfigure {
                     ;
 
                     // 权限认证 -- 不同模块, 校验不同权限
-                    // SaRouter.match("/user/**", r -> StpUtil.checkPermission("user"));
-                    // SaRouter.match("/admin/**", r -> StpUtil.checkPermission("admin"));
+                    SaRouter.match("/auth/user/logout", r -> StpUtil.checkPermission("app:note:publish"));
+//                     SaRouter.match("/auth/user/logout", r -> StpUtil.checkPermission("admin"));
                     // SaRouter.match("/goods/**", r -> StpUtil.checkPermission("goods"));
                     // SaRouter.match("/orders/**", r -> StpUtil.checkPermission("orders"));
 
                     // 更多匹配 ...  */
                 })
-                // 异常处理方法：每次setAuth函数出现异常时进入
                 .setError(e -> {
-                    return SaResult.error(e.getMessage());
+                    if ( e instanceof NotLoginException) {
+                        throw new NotLoginException(e.getMessage(),null,null);
+                    } else  if ( e instanceof NotPermissionException || e instanceof NotRoleException) {
+                        throw  new NotPermissionException(e.getMessage());
+                    } else {
+                        throw new RuntimeException(e.getMessage());
+                    }
                 })
                 ;
     }
