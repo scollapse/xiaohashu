@@ -76,6 +76,9 @@ public class UserServiceImpl implements UserService {
 
         Long userId = null;
 
+        // 查询用户是否注册
+        UserDO userDO = userDOMapper.selectByPhone(phone);
+
         // 判断登录类型
         switch (loginTypeEnum) {
             case VERIFICATION_CODE: // 验证码登录
@@ -93,8 +96,6 @@ public class UserServiceImpl implements UserService {
                     throw new BizException(ResponseCodeEnum.VERIFICATION_CODE_ERROR);
                 }
 
-                // 通过手机号查询记录
-                UserDO userDO = userDOMapper.selectByPhone(phone);
 
                 log.info("==> 用户是否注册, phone: {}, userDO: {}", phone, JsonUtils.toJsonString(userDO));
 
@@ -109,8 +110,26 @@ public class UserServiceImpl implements UserService {
                 }
                 break;
             case PASSWORD: // 密码登录
-                // todo
+                String password = userLoginReqVO.getPassword();
+                if (StringUtils.isNotBlank(password)) {
+                    password = password.trim(); // 去除首尾空格
+                }
+                // 判断该手机号是否注册
+                if (Objects.isNull(userDO)) {
+                    throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
+                }
 
+                // 拿到密文密码
+                String encodePassword = userDO.getPassword();
+
+                // 匹配密码是否一致
+                boolean isPasswordCorrect = passwordEncoder.matches(password, encodePassword);
+                // 如果不正确，则抛出业务异常，提示用户名或者密码不正确
+                if (!isPasswordCorrect) {
+                    throw new BizException(ResponseCodeEnum.PHONE_OR_PASSWORD_ERROR);
+                }
+
+                userId = userDO.getId();
                 break;
             default:
                 break;
