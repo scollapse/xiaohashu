@@ -19,6 +19,7 @@ import com.syllable.xiaohashu.auth.domain.mapper.UserDOMapper;
 import com.syllable.xiaohashu.auth.domain.mapper.UserRoleDOMapper;
 import com.syllable.xiaohashu.auth.enums.LoginTypeEnum;
 import com.syllable.xiaohashu.auth.enums.ResponseCodeEnum;
+import com.syllable.xiaohashu.auth.filter.LoginUserContextHolder;
 import com.syllable.xiaohashu.auth.model.vo.user.UserLoginReqVO;
 import com.syllable.xiaohashu.auth.service.UserService;
 import jakarta.annotation.Resource;
@@ -175,11 +176,13 @@ public class UserServiceImpl implements UserService {
     /**
      * 退出登录
      *
-     * @param userId
      * @return
      */
     @Override
-    public Response<?> logout(Long userId) {
+    public Response<?> logout() {
+        Long userId = LoginUserContextHolder.getUserId();
+
+        log.info("==> 用户退出登录, userId: {}", userId);
         // 退出登录 (指定用户 ID)
         StpUtil.logout(userId);
 

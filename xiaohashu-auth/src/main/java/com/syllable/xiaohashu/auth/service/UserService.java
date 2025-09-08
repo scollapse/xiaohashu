@@ -24,6 +24,6 @@ public interface UserService {
      * 退出登录
      * @return
      */
-    Response<?> logout(Long userId);
+    Response<?> logout();
 }
 
