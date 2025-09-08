@@ -2,6 +2,7 @@ package com.syllable.xiaohashu.auth.controller;
 
 import com.syllable.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.syllable.framework.common.response.Response;
+import com.syllable.xiaohashu.auth.model.vo.user.UpdatePasswordReqVO;
 import com.syllable.xiaohashu.auth.model.vo.user.UserLoginReqVO;
 import com.syllable.xiaohashu.auth.service.UserService;
 import jakarta.annotation.Resource;
@@ -39,4 +40,9 @@ public class UserController {
         return userService.logout();
     }
 
+    @PostMapping("/password/update")
+    @ApiOperationLog(description = "修改密码")
+    public Response<?> updatePassword(@Validated @RequestBody UpdatePasswordReqVO updatePasswordReqVO) {
+        return userService.updatePassword(updatePasswordReqVO);
+    }
 }
