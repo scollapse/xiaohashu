@@ -20,16 +20,16 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 public class FileServiceImpl implements FileService {
 
-    // 文件上传策略 实现类没有加上注解，而是在工厂类中使用@bean注解注入，实现通过配置来注入不同的策略实现类
     @Autowired
     private FileStrategyFactory fileStrategyFactory;
 
+    private static final String BUCKET_NAME = "xiaohashu";
+
     @Override
     public Response<?> uploadFile(MultipartFile file) {
-        // 上传文件到
-        fileStrategyFactory.getFileStrategy().uploadFile(file, "xiaohashu");
-
-        return Response.success();
+        // 上传文件
+        String url =  fileStrategyFactory.getFileStrategy().uploadFile(file, BUCKET_NAME);
+        return Response.success(url);
     }
 }
 
