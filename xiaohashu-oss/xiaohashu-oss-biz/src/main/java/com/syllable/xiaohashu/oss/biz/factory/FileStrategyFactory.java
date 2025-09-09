@@ -3,6 +3,7 @@ package com.syllable.xiaohashu.oss.biz.factory;
 import com.syllable.xiaohashu.oss.biz.strategy.FileStrategy;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @description: 文件策略工厂
  **/
 @Component
+@RefreshScope
 public class FileStrategyFactory {
 
     private final String strategyType;
