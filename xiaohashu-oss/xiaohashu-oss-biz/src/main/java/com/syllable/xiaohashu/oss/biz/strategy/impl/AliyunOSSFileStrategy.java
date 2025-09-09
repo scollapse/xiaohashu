@@ -2,14 +2,16 @@ package com.syllable.xiaohashu.oss.biz.strategy.impl;
 
 import com.syllable.xiaohashu.oss.biz.strategy.FileStrategy;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author: 犬小哈
  * @date: 2024/6/27 19:47
  * @version: v1.0.0
- * @description: TODO
+ * @description: 阿里云 OSS 文件上传策略
  **/
+@Component("aliyun")
 @Slf4j
 public class AliyunOSSFileStrategy implements FileStrategy {
 

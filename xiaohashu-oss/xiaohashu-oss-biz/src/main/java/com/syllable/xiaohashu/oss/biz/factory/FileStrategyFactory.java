@@ -1,12 +1,11 @@
 package com.syllable.xiaohashu.oss.biz.factory;
 
 import com.syllable.xiaohashu.oss.biz.strategy.FileStrategy;
-import com.syllable.xiaohashu.oss.biz.strategy.impl.AliyunOSSFileStrategy;
-import com.syllable.xiaohashu.oss.biz.strategy.impl.MinioFileStrategy;
-import org.apache.commons.lang3.StringUtils;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author: 犬小哈
@@ -14,22 +13,25 @@ import org.springframework.context.annotation.Configuration;
  * @version: v1.0.0
  * @description: 文件策略工厂
  **/
-@Configuration
+@Component
 public class FileStrategyFactory {
 
-    @Value("${storage.type}")
-    private String strategyType;
+    private final String strategyType;
 
-    @Bean
-    public FileStrategy getFileStrategy() {
-        if (StringUtils.equals(strategyType, "minio")) {
-            return new MinioFileStrategy();
-        } else if (StringUtils.equals(strategyType, "aliyun")) {
-            return new AliyunOSSFileStrategy();
-        }
+    private final Map<String, FileStrategy> strategyMap;
 
-        throw new IllegalArgumentException("不可用的存储类型");
+    public FileStrategyFactory(
+            @Value("${storage.type}") String strategyType,
+            Map<String, FileStrategy> strategyMap) {
+        this.strategyType = strategyType;
+        this.strategyMap = strategyMap;
     }
 
+    public FileStrategy getFileStrategy() {
+        FileStrategy strategy = strategyMap.get(strategyType);
+        if (strategy == null) {
+            throw new IllegalArgumentException("不可用的存储类型: " + strategyType);
+        }
+        return strategy;
+    }
 }
-

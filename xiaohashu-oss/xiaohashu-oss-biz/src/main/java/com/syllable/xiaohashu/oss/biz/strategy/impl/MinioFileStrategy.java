@@ -2,6 +2,7 @@ package com.syllable.xiaohashu.oss.biz.strategy.impl;
 
 import com.syllable.xiaohashu.oss.biz.strategy.FileStrategy;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @description: Minio文件上传策略
  **/
 @Slf4j
+@Component("minio")
 public class MinioFileStrategy implements FileStrategy {
 
     @Override
