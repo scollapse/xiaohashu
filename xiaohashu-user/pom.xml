@@ -3,26 +3,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.syllable</groupId>
-        <artifactId>xiaoha-framework</artifactId>
+        <artifactId>xiaohashu</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <artifactId>xiaoha-spring-boot-starter-contextholder</artifactId>
+    <modules>
+        <module>xiaohashu-user-api</module>
+        <module>xiaohashu-user-biz</module>
+    </modules>
+    <artifactId>xiaohashu-user</artifactId>
+    <!-- 项目名称 -->
     <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>用户服务</description>
 
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.syllable</groupId>
-            <artifactId>xiaoha-common</artifactId>
-        </dependency>
     </dependencies>
 </project>

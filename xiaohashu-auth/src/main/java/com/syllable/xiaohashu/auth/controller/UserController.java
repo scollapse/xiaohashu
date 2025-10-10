@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: 犬小哈
  * @date: 2024/5/29 15:32
  * @version: v1.0.0
- * @description: TODO
+ * @description:
  **/
 @RestController
-@RequestMapping("/user")
+@RequestMapping("")
 @Slf4j
 public class UserController {
 

@@ -1,8 +1,7 @@
-package com.syllable.xiaohashu.auth.holder;
+package com.syllable.framework.contextholder.holder;
 
 
 import com.syllable.framework.common.constant.GlobalConstants;
-import com.syllable.framework.contextholder.holder.HashMapContextHolder;
 
 import java.util.Objects;
 

@@ -3,23 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.syllable</groupId>
-        <artifactId>xiaoha-framework</artifactId>
+        <artifactId>xiaohashu-user</artifactId>
         <version>${revision}</version>
     </parent>
 
+    <groupId>com.syllable.xiaohashu.user.api</groupId>
+    <!-- 打包方式 -->
     <packaging>jar</packaging>
 
-    <artifactId>xiaoha-spring-boot-starter-contextholder</artifactId>
+    <artifactId>xiaohashu-user-api</artifactId>
     <name>${project.artifactId}</name>
+    <description>RPC层, 供其他服务调用</description>
 
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>transmittable-thread-local</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.syllable</groupId>
             <artifactId>xiaoha-common</artifactId>
