@@ -78,6 +78,11 @@
             <artifactId>xiaoha-spring-boot-starter-jackson</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.syllable</groupId>
+            <artifactId>xiaohashu-oss-api</artifactId>
+        </dependency>
+
 
     </dependencies>
 

@@ -4,6 +4,7 @@ import com.alibaba.nacos.shaded.com.google.common.base.Preconditions;
 import com.syllable.framework.common.response.Response;
 import com.syllable.framework.common.utils.ParamUtils;
 import com.syllable.framework.contextholder.holder.LoginUserContextHolder;
+import com.syllable.xiaohashu.oss.api.FileFeignApi;
 import com.syllable.xiaohashu.user.biz.domain.dataobject.UserDO;
 import com.syllable.xiaohashu.user.biz.domain.mapper.UserDOMapper;
 import com.syllable.xiaohashu.user.biz.enums.ResponseCodeEnum;
@@ -33,6 +34,10 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserDOMapper userDOMapper;
 
+    @Resource
+    private FileFeignApi fileFeignApi;
+
+
     /**
      * 更新用户信息
      *
@@ -52,6 +57,7 @@ public class UserServiceImpl implements UserService {
 
         if (Objects.nonNull(avatarFile)) {
             // todo: 调用对象存储服务上传文件
+            fileFeignApi.test();
         }
 
         // 昵称
