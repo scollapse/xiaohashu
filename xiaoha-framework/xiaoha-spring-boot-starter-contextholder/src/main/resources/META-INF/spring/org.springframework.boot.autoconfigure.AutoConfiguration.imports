@@ -1,1 +1,2 @@
-com.syllable.framework.contextholder.holder.HashMapContextHolder
+com.syllable.framework.contextholder.config.ContextAutoConfiguration
+com.syllable.framework.contextholder.config.FeignContextAutoConfiguration

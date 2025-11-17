@@ -1,4 +1,4 @@
-package com.syllable.xiaohashu.auth.filter;
+package com.syllable.framework.contextholder.filter;
 
 import com.syllable.framework.common.constant.GlobalConstants;
 import com.syllable.framework.contextholder.holder.LoginUserContextHolder;

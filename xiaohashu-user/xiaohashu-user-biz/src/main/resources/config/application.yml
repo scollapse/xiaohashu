@@ -4,8 +4,10 @@ server:
 spring:
   profiles:
     active: dev # 默认激活 dev 本地开发环境
-
+  servlet:
+    multipart:
+      max-file-size: 10MB # 允许的最大文件大小（针对单个文件）
+      max-request-size: 10MB # 允许的最大请求大小（针对整个请求，包括所有文件和表单数据）
 mybatis:
   # MyBatis xml 配置文件路径
   mapper-locations: classpath:/mapper/**/*.xml
-
